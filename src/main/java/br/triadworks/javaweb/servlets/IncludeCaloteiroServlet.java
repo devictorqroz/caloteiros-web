@@ -8,6 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import br.triadworks.javaweb.dao.CaloteiroDAO;
+import br.triadworks.javaweb.exceptions.CaloteiroServletException;
 import br.triadworks.javaweb.model.Caloteiro;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -19,10 +20,10 @@ import jakarta.servlet.http.HttpServletResponse;
 public class IncludeCaloteiroServlet extends HttpServlet {
 
 	@Override
-	protected void service(HttpServletRequest request, HttpServletResponse response) 
+	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
-		
+
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
 		String debt = request.getParameter("debt");
@@ -32,19 +33,20 @@ public class IncludeCaloteiroServlet extends HttpServlet {
 			Date debtDateFormatted = new SimpleDateFormat("dd/MM/yyyy").parse(debtDate);
 			debtDateParsed = Calendar.getInstance();
 			debtDateParsed.setTime(debtDateFormatted);
-		}catch (ParseException e) {
+		} catch (ParseException e) {
 			out.println("Erro de conversão de data");
+			throw new CaloteiroServletException();
 		}
-		
+
 		Caloteiro caloteiro = new Caloteiro();
 		caloteiro.setName(name);
 		caloteiro.setEmail(email);
 		caloteiro.setDebt(new Integer(debt));
 		caloteiro.setDebtDate(debtDateParsed);
-	
+
 		CaloteiroDAO dao = new CaloteiroDAO();
 		dao.includeCaloteiro(caloteiro);
-		
+
 		out.println("<html>");
 		out.println("<body>");
 		out.println("Caloteiro " + caloteiro.getName() + " adicionado com sucesso");
@@ -52,5 +54,5 @@ public class IncludeCaloteiroServlet extends HttpServlet {
 		out.println("</html>");
 
 	}
-	
+
 }
