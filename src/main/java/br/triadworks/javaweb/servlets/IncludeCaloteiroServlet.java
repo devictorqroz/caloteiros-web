@@ -15,7 +15,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/adicionaCaloteiro")
+@WebServlet(name="IncludeCaloteiroServlet", 
+		urlPatterns={"/adicionar", "/adicionarCaloteiro"})
 public class IncludeCaloteiroServlet extends HttpServlet {
 
 	@Override
