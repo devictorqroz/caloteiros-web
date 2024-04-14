@@ -41,7 +41,7 @@ public class CaloteiroDAO {
 	}
 
 
-	public List<Caloteiro> getCaloteiroList() {
+	public List<Caloteiro> getList() {
 		try {
 			PreparedStatement stmt = this.connection.
 					prepareStatement("select * from caloteiro;");
