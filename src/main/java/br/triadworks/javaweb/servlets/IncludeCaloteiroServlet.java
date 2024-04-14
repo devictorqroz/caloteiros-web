@@ -8,6 +8,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 import br.triadworks.javaweb.dao.CaloteiroDAO;
+import br.triadworks.javaweb.exceptions.IncludeCaloteiroServletException;
 import br.triadworks.javaweb.model.Caloteiro;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -35,6 +36,7 @@ public class IncludeCaloteiroServlet extends HttpServlet {
 			debtDateParsed.setTime(debtDateFormatted);
 		} catch (ParseException e) {
 			out.println("Erro de conversão de data.");
+			throw new IncludeCaloteiroServletException();
 		}
 		
 		Caloteiro caloteiro = new Caloteiro();
