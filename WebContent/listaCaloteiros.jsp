@@ -1,11 +1,13 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ include file="/includes.jsp" %>
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title>Lista de Caloteiros</title>
 	</head>
 	<body>
+		<c:import url="header.jsp" />
+		</br>
+		</br>
 		<jsp:useBean id="dao" class="br.triadworks.javaweb.dao.CaloteiroDAO"/>
 		Lista de Caloteiros: 
 		</br>
@@ -53,5 +55,7 @@
 				</tr>		
 			</c:forEach>
 		</table>
+		</br>
+		<c:import url="footer.jsp" />
 	</body>
 </html>
