@@ -3,7 +3,11 @@ package br.triadworks.javaweb.dao;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 
 import br.triadworks.javaweb.model.Caloteiro;
 
@@ -36,4 +40,41 @@ public class CaloteiroDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	public List<Caloteiro> getList() {
+		try {
+			PreparedStatement pstmt = this.connection.
+					prepareStatement("select * from caloteiro;");
+			
+			List<Caloteiro> caloteiros = new ArrayList<>();
+			Caloteiro caloteiro = null;
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Long idCaloteiro = (long) rs.getInt("id");
+				String name = rs.getString("name");
+				String email = rs.getString("email");
+				int debt = rs.getInt("debt");
+				Calendar debtDate = Calendar.getInstance();
+				debtDate.setTime(rs.getDate("debtDate"));
+				
+				caloteiro = new Caloteiro();
+				caloteiro.setId(idCaloteiro);
+				caloteiro.setName(name);
+				caloteiro.setEmail(email);
+				caloteiro.setDebt(new Integer(debt));
+				caloteiro.setDebtDate(debtDate);
+				
+				caloteiros.add(caloteiro);
+			}
+			
+			rs.close();
+			pstmt.close();
+			return caloteiros;
+			
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
 }
