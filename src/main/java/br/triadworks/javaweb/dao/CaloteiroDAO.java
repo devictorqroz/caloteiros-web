@@ -100,13 +100,13 @@ public class CaloteiroDAO {
 	}
 
 
-	public void deleteCaloteiro(Caloteiro caloteiro) {
+	public void deleteCaloteiro(Long id) {
 		String sql = "delete from caloteiro where id=?";
 
 		try {
 			PreparedStatement stmt = this.connection.prepareStatement(sql);
 
-			stmt.setLong(1, caloteiro.getId());
+			stmt.setLong(1, id);
 
 			stmt.execute();
 			stmt.close();
