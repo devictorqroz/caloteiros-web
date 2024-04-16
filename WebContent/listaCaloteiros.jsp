@@ -8,13 +8,11 @@
 		<c:import url="cabecalho.jsp" />
 		</br>
 		</br>
-		<jsp:useBean id="dao" class="br.triadworks.javaweb.dao.CaloteiroDAO"/>
 		Lista de Caloteiros: 
 		</br>
 		</br>
-		
 		<table border="1">
-			<c:forEach var="caloteiro" items="${dao.list}" varStatus="id">
+			<c:forEach var="caloteiro" items="${caloteiros}" varStatus="id">
 				<tr bgcolor="#${id.count % 2 == 0 ? 'ff0000' : 'ffffff' }">
 					<td>${id.count}</td> 
 					<c:choose>
