@@ -11,7 +11,7 @@ import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public class IncludeCaloteiroLogic {
+public class IncludeCaloteiroLogica implements Logica {
 	
 	public void execute(HttpServletRequest request, HttpServletResponse response)
 				throws Exception {

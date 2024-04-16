@@ -9,7 +9,8 @@ import java.util.Date;
 import br.triadworks.javaweb.dao.CaloteiroDAO;
 import br.triadworks.javaweb.exceptions.CaloteiroServletException;
 import br.triadworks.javaweb.model.Caloteiro;
-import br.triadworks.javaweb.model.IncludeCaloteiroLogic;
+import br.triadworks.javaweb.model.IncludeCaloteiroLogica;
+import br.triadworks.javaweb.model.Logica;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -24,17 +25,21 @@ public class SystemServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 
-		String action = request.getParameter("resource");
+		String action = request.getParameter("logica");
+		String classNameFromAction = "br.triadworks.javaweb.model."+action+"Logica";
 		
-		if (action.equals("adicionarCaloteiro")) {
-			try {
-				new IncludeCaloteiroLogic().execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else {
-			RequestDispatcher rd = 
-				request.getRequestDispatcher("/error-default.jsp");
+		try {
+			Class newClassFromClassName = Class.forName(classNameFromAction);
+			Object objectFromNewClass = newClassFromClassName.newInstance();
+			Logica logica = (Logica) objectFromNewClass;
+			logica.execute(request, response);
+		} catch (ClassNotFoundException e) {
+			throw new CaloteiroServletException(e.getMessage());
+		} catch (InstantiationException | IllegalAccessException e) {
+			throw new CaloteiroServletException(e.getMessage());
+		} catch (Exception e) {
+			throw new CaloteiroServletException(e.getMessage());
 		}
+		
 	}
 }

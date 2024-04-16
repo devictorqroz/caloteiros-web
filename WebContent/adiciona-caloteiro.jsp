@@ -8,7 +8,7 @@
 		</br>
 		</br>
 		<form action="system" method="post">
-			<input type="hidden" name="resource" value="adicionarCaloteiro" />
+			<input type="hidden" name="logica" value="IncludeCaloteiro" />
 			
 			<triadTag:campoTexto 
 				campoName="name" 
