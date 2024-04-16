@@ -7,7 +7,9 @@
 		<c:import url="cabecalho.jsp" />
 		</br>
 		</br>
-		<form action="adicionaCaloteiro" method="post">
+		<form action="system" method="post">
+			<input type="hidden" name="resource" value="adicionarCaloteiro" />
+			
 			<triadTag:campoTexto 
 				campoName="name" 
 				label="Nome:" 

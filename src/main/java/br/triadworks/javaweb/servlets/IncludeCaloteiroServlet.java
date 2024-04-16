@@ -10,6 +10,7 @@ import java.util.Calendar;
 import br.triadworks.javaweb.dao.CaloteiroDAO;
 import br.triadworks.javaweb.exceptions.CaloteiroServletException;
 import br.triadworks.javaweb.model.Caloteiro;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -47,12 +48,9 @@ public class IncludeCaloteiroServlet extends HttpServlet {
 		CaloteiroDAO dao = new CaloteiroDAO();
 		dao.includeCaloteiro(caloteiro);
 
-		out.println("<html>");
-		out.println("<body>");
-		out.println("Caloteiro " + caloteiro.getName() + " adicionado com sucesso");
-		out.println("</body>");
-		out.println("</html>");
-
+		RequestDispatcher rd = 
+			request.getRequestDispatcher("/caloteiro-adicionado.jsp");
+		rd.forward(request, response);
 	}
 
 }
