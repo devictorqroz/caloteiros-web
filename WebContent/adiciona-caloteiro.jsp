@@ -8,10 +8,22 @@
 		</br>
 		</br>
 		<form action="adicionaCaloteiro" method="post">
-			Nome: <input type="text" name="name"/> </br>
-			E-mail: <input type="text" name="email"/> </br>
-			Devendo R$: <input type="text" name="debt"/> </br>
-			Data: <input type="text" name="debtDate"/> </br>
+			<triadTag:campoTexto 
+				campoName="name" 
+				label="Nome:" 
+				id="labelName" /> </br>
+			<triadTag:campoTexto 
+				campoName="email" 
+				label="Email:" 
+				id="labelEmail" /> </br>	
+			<triadTag:campoTexto 
+				campoName="debt" 
+				label="Devendo:" 
+				id="labelDebt" /> </br>
+			<triadTag:campoTexto 
+				campoName="debtDate" 
+				label="Data da Dívida:" 
+				id="labelDate" /> </br>
 		
 			<input type="submit" value="Salvar"/>
 		</form>
