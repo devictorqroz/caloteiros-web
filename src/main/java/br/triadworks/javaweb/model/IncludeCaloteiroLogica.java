@@ -16,12 +16,46 @@ public class IncludeCaloteiroLogica implements Logica {
 	public void execute(HttpServletRequest request, HttpServletResponse response)
 				throws Exception {
 		
-		String update = request.getParameter("update");
+		String form = request.getParameter("form");
+		if (form == null) {
+			form = "new";
+		}
 		
-		
-		if (update.equals("true")) {
-			Long caloteiroID = Long.parseLong(request.getParameter("id"));
+		if (form.equals("new")) {
+			RequestDispatcher rd = 
+				request.getRequestDispatcher("/includeCaloteiro.jsp");
+			rd.forward(request, response);
 			
+		} else if (form.equals("save")) {
+			String name = request.getParameter("name");
+			String email = request.getParameter("email");
+			String debt = request.getParameter("debt");
+			String debtDate = request.getParameter("debtDate");
+			Calendar debtDateParsed = null;
+			try {
+				Date debtDateFormatted = 
+					new SimpleDateFormat("dd/MM/yyyy").parse(debtDate);
+				debtDateParsed = Calendar.getInstance();
+				debtDateParsed.setTime(debtDateFormatted);
+			} catch (ParseException e) {
+				throw new CaloteiroServletException();
+			}
+			
+			Caloteiro caloteiro = new Caloteiro();
+			caloteiro.setName(name);
+			caloteiro.setEmail(email);
+			caloteiro.setDebt(new Integer(debt));
+			caloteiro.setDebtDate(debtDateParsed);
+
+			CaloteiroDAO dao = new CaloteiroDAO();
+			dao.includeCaloteiro(caloteiro);
+			
+			RequestDispatcher rd = 
+				request.getRequestDispatcher("/caloteiroIncluded.jsp");
+			rd.forward(request, response);
+			
+		} else if (form.equals("update")) {
+			Long caloteiroID = Long.parseLong(request.getParameter("id"));
 			
 			String name = request.getParameter("name");
 			String email = request.getParameter("email");
@@ -48,37 +82,9 @@ public class IncludeCaloteiroLogica implements Logica {
 			dao.updateCaloteiro(caloteiro);
 			
 			RequestDispatcher rd = 
-				request.getRequestDispatcher("/caloteiro-atualizado.jsp");
+				request.getRequestDispatcher("/caloteiroUpdated.jsp");
 			rd.forward(request, response);
+		} 
 			
-		} else if (update.equals("false")) {
-			String name = request.getParameter("name");
-			String email = request.getParameter("email");
-			String debt = request.getParameter("debt");
-			String debtDate = request.getParameter("debtDate");
-			Calendar debtDateParsed = null;
-			try {
-				Date debtDateFormatted = 
-					new SimpleDateFormat("dd/MM/yyyy").parse(debtDate);
-				debtDateParsed = Calendar.getInstance();
-				debtDateParsed.setTime(debtDateFormatted);
-			} catch (ParseException e) {
-				throw new CaloteiroServletException();
-			}
-			
-			Caloteiro caloteiro = new Caloteiro();
-			caloteiro.setName(name);
-			caloteiro.setEmail(email);
-			caloteiro.setDebt(new Integer(debt));
-			caloteiro.setDebtDate(debtDateParsed);
-
-			CaloteiroDAO dao = new CaloteiroDAO();
-			dao.includeCaloteiro(caloteiro);
-			
-			RequestDispatcher rd = 
-				request.getRequestDispatcher("/caloteiro-adicionado.jsp");
-			rd.forward(request, response);
-		}
-		
 	}
 }

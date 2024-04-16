@@ -17,7 +17,7 @@ public class ListCaloteiroLogica implements Logica {
 		
 		request.setAttribute("caloteiros", caloteiros);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/listaCaloteiros.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/listCaloteiros.jsp");
 		rd.forward(request, response);	
 	}
 

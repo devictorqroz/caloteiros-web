@@ -1,4 +1,4 @@
-package br.triadworks.javaweb.servlets;
+package br.triadworks.javaweb.examples;
 
 import java.io.IOException;
 import java.io.PrintWriter;

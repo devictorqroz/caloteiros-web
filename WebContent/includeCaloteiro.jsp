@@ -4,33 +4,33 @@
 		<title>Adiciona caloteiro</title>
 	</head>
 	<body>
-		<c:import url="cabecalho.jsp" />
+		<c:import url="header.jsp" />
 		</br>
 		</br>
 		<form action="system" method="post">
 			<input type="hidden" name="logica" value="IncludeCaloteiro" />
-			<input type="hidden" name="update" value="false"/>
+			<input type="hidden" name="form" value="save"/>
 			
-			<triadTag:campoTexto 
-				campoName="name" 
+			<triadTag:textField 
+				nameField="name" 
 				label="Nome:" 
 				id="labelName" /> </br>
-			<triadTag:campoTexto 
-				campoName="email" 
+			<triadTag:textField 
+				nameField="email" 
 				label="Email:" 
 				id="labelEmail" /> </br>	
-			<triadTag:campoTexto 
-				campoName="debt" 
+			<triadTag:textField 
+				nameField="debt" 
 				label="Devendo:" 
 				id="labelDebt" /> </br>
-			<triadTag:campoTexto 
-				campoName="debtDate" 
+			<triadTag:textField 
+				nameField="debtDate" 
 				label="Data da Dívida:" 
 				id="labelDate" /> </br>
 				
 			<input type="submit" value="Salvar"/>
 		</form>
 		</br>
-		<c:import url="rodape.jsp" />
+		<c:import url="footer.jsp" />
 	</body>
 </html>

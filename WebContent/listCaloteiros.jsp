@@ -5,7 +5,7 @@
 		<title>Lista de Caloteiros</title>
 	</head>
 	<body>
-		<c:import url="cabecalho.jsp" />
+		<c:import url="header.jsp" />
 		</br>
 		</br>
 		Lista de Caloteiros: 
@@ -70,6 +70,6 @@
 			</c:forEach>
 		</table>
 		</br>
-		<c:import url="rodape.jsp" />
+		<c:import url="footer.jsp" />
 	</body>
 </html>
