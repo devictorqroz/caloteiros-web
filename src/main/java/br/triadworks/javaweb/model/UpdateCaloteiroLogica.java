@@ -1,5 +1,6 @@
 package br.triadworks.javaweb.model;
 
+import java.sql.Connection;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -16,12 +17,13 @@ public class UpdateCaloteiroLogica implements Logica {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
+		Connection connection = (Connection) request.getAttribute("connection");
 		
 		Long caloteiroID = Long.parseLong(request.getParameter("id"));
 		
 		Caloteiro caloteiro = null;
 		try {
-			CaloteiroDAO dao = new CaloteiroDAO();
+			CaloteiroDAO dao = new CaloteiroDAO(connection);
 			caloteiro = dao.getCaloteiroByID(caloteiroID);
 		} catch (Exception e) {
 			throw new CaloteiroServletException();

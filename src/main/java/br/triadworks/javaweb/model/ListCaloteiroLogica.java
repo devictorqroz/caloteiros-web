@@ -1,5 +1,6 @@
 package br.triadworks.javaweb.model;
 
+import java.sql.Connection;
 import java.util.List;
 
 import br.triadworks.javaweb.dao.CaloteiroDAO;
@@ -12,7 +13,9 @@ public class ListCaloteiroLogica implements Logica {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		CaloteiroDAO dao = new CaloteiroDAO();
+		Connection connection = (Connection) request.getAttribute("connection");
+		
+		CaloteiroDAO dao = new CaloteiroDAO(connection);
 		List<Caloteiro> caloteiros = dao.getList();
 		
 		request.setAttribute("caloteiros", caloteiros);

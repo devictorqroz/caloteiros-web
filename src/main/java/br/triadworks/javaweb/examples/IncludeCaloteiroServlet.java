@@ -2,6 +2,7 @@ package br.triadworks.javaweb.examples;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
 import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -25,6 +26,8 @@ public class IncludeCaloteiroServlet extends HttpServlet {
 			throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
 
+		Connection connection = (Connection) request.getAttribute("connection");
+		
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
 		String debt = request.getParameter("debt");
@@ -45,7 +48,8 @@ public class IncludeCaloteiroServlet extends HttpServlet {
 		caloteiro.setDebt(new Integer(debt));
 		caloteiro.setDebtDate(debtDateParsed);
 
-		CaloteiroDAO dao = new CaloteiroDAO();
+		
+		CaloteiroDAO dao = new CaloteiroDAO(connection);
 		dao.includeCaloteiro(caloteiro);
 
 		RequestDispatcher rd = 
