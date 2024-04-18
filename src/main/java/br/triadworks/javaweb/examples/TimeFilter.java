@@ -1,4 +1,4 @@
-package br.triadworks.javaweb.filters;
+package br.triadworks.javaweb.examples;
 
 import java.io.IOException;
 
