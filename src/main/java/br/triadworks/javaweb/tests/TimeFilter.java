@@ -1,4 +1,4 @@
-package br.triadworks.javaweb.examples;
+package br.triadworks.javaweb.tests;
 
 import java.io.IOException;
 

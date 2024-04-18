@@ -1,4 +1,4 @@
-package br.triadworks.javaweb.examples;
+package br.triadworks.javaweb.tests;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,19 +9,23 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/HelloWorld")
-public class MyFirstServlet extends HttpServlet {
+@WebServlet("/counter")
+public class CounterServlet  extends HttpServlet {
 
+	private int counter = 0;
+	
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		PrintWriter sysout = response.getWriter();
+		counter ++;
 		
-		sysout.println("<html>");
-		sysout.println("<body>");
-		sysout.println("Wooow, my first servlet :D!");
-		sysout.println("</body>");
-		sysout.println("</html>");
+		PrintWriter printer = response.getWriter();
+		printer.println("<html>");
+		printer.println("<body>");
+		printer.println("Server number: " + counter);
+		printer.println("</body>");
+		printer.println("</html>");
+		
 	}
+	
 }
- 
