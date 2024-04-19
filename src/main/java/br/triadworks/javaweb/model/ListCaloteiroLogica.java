@@ -7,6 +7,7 @@ import br.triadworks.javaweb.dao.CaloteiroDAO;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 public class ListCaloteiroLogica implements Logica {
 
@@ -19,9 +20,8 @@ public class ListCaloteiroLogica implements Logica {
 		List<Caloteiro> caloteiros = dao.getList();
 		
 		request.setAttribute("caloteiros", caloteiros);
-		
 		RequestDispatcher rd = request.getRequestDispatcher("/listCaloteiros.jsp");
-		rd.forward(request, response);	
+		rd.forward(request, response);
 	}
 
 }

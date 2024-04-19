@@ -3,6 +3,6 @@
 		<title>Editar Caloteiro</title>
 	</head>
 	<body>
-		Caloteiro ${param.name} atualizado com sucesso.
+		Caloteiro ${caloteiro.name} atualizado com sucesso.
 	</body>
 </html>

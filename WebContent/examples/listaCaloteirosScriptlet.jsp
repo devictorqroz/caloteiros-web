@@ -9,17 +9,17 @@
 	<body>
 		Lista de Caloteiros: </br>
 		
-		<%
-				CaloteiroDAO dao = new CaloteiroDAO();
-									List<Caloteiro> list = dao.getList();
-									for(Caloteiro c : list) {
-				%>
+		<%-- <%
+			CaloteiroDAO dao = new CaloteiroDAO();
+			List<Caloteiro> list = dao.getList();
+			for(Caloteiro c : list) {
+		%>
 		
 			<li>
 				<%=c.getName() %> - <%=c.getEmail() %>
 			</li>
 		
-		<% } %>
+		<% } %> --%>
 		
 	</body>
 </html>

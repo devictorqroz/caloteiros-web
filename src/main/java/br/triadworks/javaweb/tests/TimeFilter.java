@@ -11,7 +11,7 @@ import jakarta.servlet.ServletResponse;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 
-@WebFilter(filterName="TimeFilter", urlPatterns="/*")
+@WebFilter(filterName="TimeFilter")
 public class TimeFilter implements Filter {
 
 	@Override

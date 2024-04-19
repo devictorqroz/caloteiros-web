@@ -57,15 +57,20 @@
 							<td>Data dívida não preenchida.</td>
 						</c:otherwise>
 					</c:choose>
-					
-					<%-- <td>
+					 <td>
 						 <form action="system" method="post">
 							<input type="hidden" name="logica" value="UpdateCaloteiro" />
 							<input type="hidden" name="id" value="${caloteiro.id}" />
 							<input type="submit" name="updateButton" value="Editar" />
 						</form> 
-					</td> --%>
-				
+					</td>
+					<td>
+						 <form action="system" method="post">
+							<input type="hidden" name="logica" value="DeleteCaloteiro" />
+							<input type="hidden" name="id" value="${caloteiro.id}" />
+							<input type="submit" name="deleteButton" value="Deletar" />
+						</form> 
+					</td>
 				</tr>		
 			</c:forEach>
 		</table>

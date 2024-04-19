@@ -5,8 +5,9 @@
 	</head>
 	<body>
 		<c:import url="header.jsp" />
-		</br>
-		</br>
+		<hr>
+			Usuário logado: ${authenticatedUser.name}
+		<hr>
 		<form action="system" method="post">
 			<input type="hidden" name="logica" value="IncludeCaloteiro" />
 			<input type="hidden" name="form" value="save"/>

@@ -15,10 +15,10 @@ public class UserDAOTest {
 		UserDAO userDAO = new UserDAO(connection);
 		
 		
-		User loggedUser = 
+		User authenticatedUser = 
 				userDAO.authenticateUser("admin", "123");		
-		if (loggedUser != null) {
-			System.out.println("Usuário logado: " + loggedUser.getName());
+		if (authenticatedUser != null) {
+			System.out.println("Usuário logado: " + authenticatedUser.getName());
 		}
 		
 		
