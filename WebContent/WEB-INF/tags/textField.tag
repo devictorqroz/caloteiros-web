@@ -5,4 +5,4 @@
 
 
 <label for="${id}">${label}</label>
-<input type="text" name="${nameField}" id="${id}" value="${value}"/>
+<input type="text" name="${nameField}" id="${id}" value="${value}" />
