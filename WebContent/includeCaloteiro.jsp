@@ -34,4 +34,7 @@
 		</br>
 		<c:import url="footer.jsp" />
 	</body>
+	<script src="jquery-3.7.1.min.js"></script>
+	<script src="jquery.maskMoney.min.js"></script>
+	<script src="js/masks.js"></script>
 </html>
