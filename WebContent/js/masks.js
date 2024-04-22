@@ -9,7 +9,7 @@ $(document).ready(function() {
 	
 	
 	$("#labelDebt").maskMoney();
-	
+	$("#labelDate").inputmask("99/99/9999");
 	
 	$("#formInclude").validate({
 		rules: {
