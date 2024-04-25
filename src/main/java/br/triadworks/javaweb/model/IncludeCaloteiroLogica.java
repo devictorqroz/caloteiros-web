@@ -1,30 +1,21 @@
-package br.triadworks.javaweb.servlets;
+package br.triadworks.javaweb.model;
 
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
 import br.triadworks.javaweb.dao.CaloteiroDAO;
-import br.triadworks.javaweb.exceptions.IncludeCaloteiroServletException;
-import br.triadworks.javaweb.model.Caloteiro;
+import br.triadworks.javaweb.exceptions.CaloteiroServletException;
 import jakarta.servlet.RequestDispatcher;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet(name="IncludeCaloteiroServlet", 
-		urlPatterns={"/include", "/includeCaloteiro"})
-public class IncludeCaloteiroServlet extends HttpServlet {
+public class IncludeCaloteiroLogica implements Logica {
 
 	@Override
-	protected void service(HttpServletRequest request, HttpServletResponse response) 
-			throws ServletException, IOException {
-		PrintWriter out = response.getWriter(); 
+	public void execute(HttpServletRequest request, HttpServletResponse response) 
+							throws Exception {
 		
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
@@ -36,8 +27,7 @@ public class IncludeCaloteiroServlet extends HttpServlet {
 			debtDateParsed = Calendar.getInstance();
 			debtDateParsed.setTime(debtDateFormatted);
 		} catch (ParseException e) {
-			out.println("Erro de conversão de data.");
-			throw new IncludeCaloteiroServletException();
+			throw new CaloteiroServletException();
 		}
 		
 		Caloteiro caloteiro = new Caloteiro();
@@ -52,6 +42,7 @@ public class IncludeCaloteiroServlet extends HttpServlet {
 		RequestDispatcher rd =
 				request.getRequestDispatcher("/caloteiro-included.jsp");
 		rd.forward(request, response);
+		
 	}
-	
+
 }

@@ -6,7 +6,8 @@
 	<body>
 		<c:import url="header.jsp" />
 		<hr>
-		<form action="includeCaloteiro" method="post">
+		<form action="system" method="post">
+			<input type="hidden" name="logica" value="IncludeCaloteiro" />
 			
 			<triadTag:textField 
 				nameField="name" 
