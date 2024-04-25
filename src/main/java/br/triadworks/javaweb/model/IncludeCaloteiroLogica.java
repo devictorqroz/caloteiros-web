@@ -17,31 +17,69 @@ public class IncludeCaloteiroLogica implements Logica {
 	public void execute(HttpServletRequest request, HttpServletResponse response) 
 							throws Exception {
 		
-		String name = request.getParameter("name");
-		String email = request.getParameter("email");
-		String debt = request.getParameter("debt");
-		String debtDate = request.getParameter("debtDate");
-		Calendar debtDateParsed = null;
-		try {
-			Date debtDateFormatted = new SimpleDateFormat("dd/MM/yyyy").parse(debtDate);
-			debtDateParsed = Calendar.getInstance();
-			debtDateParsed.setTime(debtDateFormatted);
-		} catch (ParseException e) {
-			throw new CaloteiroServletException();
+		String form = request.getParameter("form");
+		
+		
+		if (form.equals("include")) {	
+			String name = request.getParameter("name");
+			String email = request.getParameter("email");
+			String debt = request.getParameter("debt");
+			String debtDate = request.getParameter("debtDate");
+			Calendar debtDateParsed = null;
+			try {
+				Date debtDateFormatted = new SimpleDateFormat("dd/MM/yyyy").parse(debtDate);
+				debtDateParsed = Calendar.getInstance();
+				debtDateParsed.setTime(debtDateFormatted);
+			} catch (ParseException e) {
+				throw new CaloteiroServletException();
+			}
+			
+			Caloteiro caloteiro = new Caloteiro();
+			caloteiro.setName(name);
+			caloteiro.setEmail(email);
+			caloteiro.setDebt(new Integer(debt));
+			caloteiro.setDebtDate(debtDateParsed);
+			
+			CaloteiroDAO dao = new CaloteiroDAO();
+			dao.includeCaloteiro(caloteiro);
+			
+			RequestDispatcher rd =
+					request.getRequestDispatcher("/caloteiro-included.jsp");
+			rd.forward(request, response);	
+		
+		} else if (form.equals("update")) {
+			Long caloteiroID = Long.parseLong(request.getParameter("id"));
+			
+			String name = request.getParameter("name");
+			String email = request.getParameter("email");
+			String debt = request.getParameter("debt");
+			String debtDate = request.getParameter("debtDate");
+			Calendar debtDateParsed = null;
+			try {
+				Date debtDateFormatted = 
+					new SimpleDateFormat("dd/MM/yyyy").parse(debtDate);
+				debtDateParsed = Calendar.getInstance();
+				debtDateParsed.setTime(debtDateFormatted);
+			} catch (ParseException e) {
+				throw new CaloteiroServletException();
+			}
+			
+			Caloteiro caloteiro = new Caloteiro();
+			caloteiro.setId(caloteiroID);
+			caloteiro.setName(name);
+			caloteiro.setEmail(email);
+			caloteiro.setDebt(new Integer(debt));
+			caloteiro.setDebtDate(debtDateParsed);
+			
+			CaloteiroDAO dao = new CaloteiroDAO();
+			dao.updateCaloteiro(caloteiro);
+			
+			RequestDispatcher rd =
+					request.getRequestDispatcher("/caloteiro-updated.jsp");
+			rd.forward(request, response);
+			
 		}
 		
-		Caloteiro caloteiro = new Caloteiro();
-		caloteiro.setName(name);
-		caloteiro.setEmail(email);
-		caloteiro.setDebt(new Integer(debt));
-		caloteiro.setDebtDate(debtDateParsed);
-		
-		CaloteiroDAO dao = new CaloteiroDAO();
-		dao.includeCaloteiro(caloteiro);
-		
-		RequestDispatcher rd =
-				request.getRequestDispatcher("/caloteiro-included.jsp");
-		rd.forward(request, response);
 		
 	}
 
