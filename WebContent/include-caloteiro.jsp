@@ -6,7 +6,7 @@
 	<body>
 		<c:import url="header.jsp" />
 		<hr>
-		<form action="adicionarCaloteiro" method="post">
+		<form action="includeCaloteiro" method="post">
 			
 			<triadTag:textField 
 				nameField="name" 

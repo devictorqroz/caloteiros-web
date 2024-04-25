@@ -17,7 +17,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet(name="IncludeCaloteiroServlet", 
-		urlPatterns={"/adicionar", "/adicionarCaloteiro"})
+		urlPatterns={"/include", "/includeCaloteiro"})
 public class IncludeCaloteiroServlet extends HttpServlet {
 
 	@Override
