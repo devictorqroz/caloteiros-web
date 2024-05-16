@@ -129,7 +129,23 @@ public class CaloteiroDAO {
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
+	}
+	
+	public void deleteCaloteiro(Long id) {
 		
+		String sql = "delete from caloteiro where id = ?;";
+		 
+		try {
+			PreparedStatement pstmt = this.connection.prepareStatement(sql);
+			
+			pstmt.setLong(1, id);
+			
+			pstmt.execute();
+			pstmt.close();
+			
+		} catch (SQLException e) {
+			throw new RuntimeException();
+		}
 	}
 	
 }
