@@ -46,6 +46,7 @@ public class IncludeCaloteiroLogica implements Logica {
 			CaloteiroDAO dao = new CaloteiroDAO(connection);
 			dao.includeCaloteiro(caloteiro);
 			
+			request.setAttribute("caloteiro", caloteiro);
 			RequestDispatcher rd =
 					request.getRequestDispatcher("/caloteiro-included.jsp");
 			rd.forward(request, response);	
@@ -77,6 +78,7 @@ public class IncludeCaloteiroLogica implements Logica {
 			CaloteiroDAO dao = new CaloteiroDAO(connection);
 			dao.updateCaloteiro(caloteiro);
 			
+			request.setAttribute("caloteiro", caloteiro);
 			RequestDispatcher rd =
 					request.getRequestDispatcher("/caloteiro-updated.jsp");
 			rd.forward(request, response);

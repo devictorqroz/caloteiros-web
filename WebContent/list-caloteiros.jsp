@@ -64,11 +64,14 @@
 							<input type="submit" name="deleteButton" value="Excluir" />
 						</form>
 					</td>
-					
 				</tr>		
 			</c:forEach>
 		</table>
-		</br>
+		<hr>
+		<a href='<c:url value="/menu.jsp" />' >
+					Menu
+		</a>
+		<hr>
 		<c:import url="footer.jsp" />
 	</body>
 </html>

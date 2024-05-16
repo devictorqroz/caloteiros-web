@@ -19,9 +19,7 @@ public class DeleteCaloteiroLogica implements Logica {
 		CaloteiroDAO dao = new CaloteiroDAO(connection);
 		dao.deleteCaloteiro(caloteiroID);
 		
-		String message = "Caloteiro deleted";
-		
-		request.setAttribute("message", message);
+		request.setAttribute("message", "Caloteiro deletado");
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/caloteiro-deleted.jsp");
 		rd.forward(request, response);

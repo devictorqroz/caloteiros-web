@@ -22,7 +22,7 @@
 	</error-page>
 	<error-page>
 		<exception-type>
-			br.triadworks.javaweb.exceptions.IncludeCaloteiroServletException
+			br.triadworks.javaweb.exceptions.CaloteiroServletException
 		</exception-type>
 		<location>/error-caloteiro.html</location>
 	</error-page>
