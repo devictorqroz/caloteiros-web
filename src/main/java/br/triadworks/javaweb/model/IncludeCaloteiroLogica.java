@@ -1,5 +1,6 @@
 package br.triadworks.javaweb.model;
 
+import java.sql.Connection;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -18,6 +19,8 @@ public class IncludeCaloteiroLogica implements Logica {
 							throws Exception {
 		
 		String form = request.getParameter("form");
+		
+		Connection connection = (Connection) request.getAttribute("connection");
 		
 		
 		if (form.equals("include")) {	
@@ -40,7 +43,7 @@ public class IncludeCaloteiroLogica implements Logica {
 			caloteiro.setDebt(new Integer(debt));
 			caloteiro.setDebtDate(debtDateParsed);
 			
-			CaloteiroDAO dao = new CaloteiroDAO();
+			CaloteiroDAO dao = new CaloteiroDAO(connection);
 			dao.includeCaloteiro(caloteiro);
 			
 			RequestDispatcher rd =
@@ -71,7 +74,7 @@ public class IncludeCaloteiroLogica implements Logica {
 			caloteiro.setDebt(new Integer(debt));
 			caloteiro.setDebtDate(debtDateParsed);
 			
-			CaloteiroDAO dao = new CaloteiroDAO();
+			CaloteiroDAO dao = new CaloteiroDAO(connection);
 			dao.updateCaloteiro(caloteiro);
 			
 			RequestDispatcher rd =

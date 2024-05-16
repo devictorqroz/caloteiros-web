@@ -1,5 +1,7 @@
 package br.triadworks.javaweb.model;
 
+import java.sql.Connection;
+
 import br.triadworks.javaweb.dao.CaloteiroDAO;
 import br.triadworks.javaweb.exceptions.CaloteiroServletException;
 import jakarta.servlet.RequestDispatcher;
@@ -14,9 +16,12 @@ public class UpdateCaloteiroLogica implements Logica {
 		
 		Long caloteiroID = Long.parseLong(request.getParameter("id"));
 		
+		Connection connection = (Connection) request.getAttribute("connection");
+		
 		Caloteiro caloteiro = null;
+		
 		try {
-			CaloteiroDAO dao = new CaloteiroDAO();
+			CaloteiroDAO dao = new CaloteiroDAO(connection);
 			caloteiro = dao.getCaloteiroByID(caloteiroID);
 		} catch (Exception e) {
 			throw new CaloteiroServletException();

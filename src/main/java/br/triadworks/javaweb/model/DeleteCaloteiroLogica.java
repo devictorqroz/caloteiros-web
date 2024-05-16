@@ -1,5 +1,7 @@
 package br.triadworks.javaweb.model;
 
+import java.sql.Connection;
+
 import br.triadworks.javaweb.dao.CaloteiroDAO;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.http.HttpServletRequest;
@@ -12,7 +14,9 @@ public class DeleteCaloteiroLogica implements Logica {
 		
 		Long caloteiroID = Long.parseLong(request.getParameter("id"));
 		
-		CaloteiroDAO dao = new CaloteiroDAO();
+		Connection connection = (Connection) request.getAttribute("connection");
+		
+		CaloteiroDAO dao = new CaloteiroDAO(connection);
 		dao.deleteCaloteiro(caloteiroID);
 		
 		String message = "Caloteiro deleted";
