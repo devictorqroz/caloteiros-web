@@ -8,7 +8,7 @@
 		<hr>
 			Usuário Logado: ${authenticatedUser.name}
 		<hr>
-		<form action="system" method="post">
+		<form action="system" method="post" id="formInclude">
 			<input type="hidden" name="logica" value="IncludeCaloteiro"/>
 			<input type="hidden" name="form" value="include"/>
 			
@@ -34,4 +34,9 @@
 		<hr>
 		<c:import url="footer.jsp" />
 	</body>
+	<script src="javascript/jquery-3.7.1.min.js"></script>
+	<script src="javascript/jquery.maskMoney.min.js"></script>
+	<script src="javascript/jquery.validate.min.js"></script>
+	<script src="javascript/jquery.inputmask.min.js"></script>
+	<script src="javascript/masks.js"></script>
 </html>
