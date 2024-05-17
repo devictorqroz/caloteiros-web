@@ -14,17 +14,17 @@
 	</welcome-file-list>
 
 	<error-page>
-		<location>/error-default.html</location>
+		<location>/error-default.jsp</location>
 	</error-page>
 	<error-page>
 		<error-code>404</error-code>
-		<location>/error-404.html</location>
+		<location>/error-404.jsp</location>
 	</error-page>
 	<error-page>
 		<exception-type>
 			br.triadworks.javaweb.exceptions.CaloteiroServletException
 		</exception-type>
-		<location>/error-caloteiro.html</location>
+		<location>/error-caloteiro.jsp</location>
 	</error-page>
 
 </web-app>
