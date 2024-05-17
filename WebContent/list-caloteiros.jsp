@@ -64,6 +64,7 @@
 							<form action="system" method="post">
 								<input type="hidden" name="logica" value="DeleteCaloteiro" />
 								<input type="hidden" name="id" value="${caloteiro.id}" />
+								<input type="hidden" name="name" value="${caloteiro.name}" />
 								<input type="submit" name="deleteButton" value="Excluir" />
 							</form>
 						</td>
