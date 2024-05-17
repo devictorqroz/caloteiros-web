@@ -33,8 +33,11 @@ public class AuthorizationFilter implements Filter {
 		}
 		
 		if (uri.equals("login.jsp")
+			|| uri.endsWith("header.jsp")
+			|| uri.endsWith("footer.jsp")
 			|| logica.endsWith("AuthenticateUser")
-			|| uri.endsWith("png")) {
+			|| uri.endsWith("png")
+			|| uri.endsWith("css")) {
 			
 				chain.doFilter(request, response);
 		} else {

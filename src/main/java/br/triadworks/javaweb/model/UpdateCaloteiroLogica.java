@@ -14,9 +14,9 @@ public class UpdateCaloteiroLogica implements Logica {
 	public void execute(HttpServletRequest request, HttpServletResponse response) 
 							throws Exception {
 		
-		Long caloteiroID = Long.parseLong(request.getParameter("id"));
-		
 		Connection connection = (Connection) request.getAttribute("connection");
+
+		Long caloteiroID = Long.parseLong(request.getParameter("id"));
 		
 		Caloteiro caloteiro = null;
 		

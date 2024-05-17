@@ -3,23 +3,31 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Menu Caloteiros</title>
+		<link rel="stylesheet" type="text/css" href="css/menu.css">
 	</head>
 	<body>
-		<c:import url="header.jsp" />
-		<p>Seja bem vindo ${authenticatedUser.name} ao sistema caloteiros:</p>
-		<p>
+		<header>
+			<c:import url="header.jsp" />
+			<h1>Caloteiros</h1>
+		</header>
+		<main>
+			<p>Seja bem vindo ${authenticatedUser.name} ao sistema caloteiros:</p>
+			
 			<ol>
-				<a href='<c:url value="/include-caloteiro.jsp" />' >
-					Adicionar caloteiro
-				</a>
+				<li>
+					<a href='<c:url value="/include-caloteiro.jsp" />' >
+						Adicionar caloteiro
+					</a>
+				</li>
+				<li>
+					<a href='<c:url value="/system?logica=ListCaloteiro" />' >
+						Listar caloteiros
+					</a>
+				</li>
 			</ol>
-			<ol>
-				<a href='<c:url value="/system?logica=ListCaloteiro" />' >
-					Listar caloteiros
-				</a>
-			</ol>
-		</p>
-
-		<c:import url="footer.jsp" />
+		</main>
+		<footer>
+			<c:import url="footer.jsp" />
+		</footer>
 	</body>
 </html>
