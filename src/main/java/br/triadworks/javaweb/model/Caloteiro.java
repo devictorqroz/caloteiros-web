@@ -7,7 +7,7 @@ public class Caloteiro {
 	private Long id;
 	private String name;
 	private String email;
-	private Integer debt;
+	private Double debt;
 	private Calendar debtDate;
 	
 	
@@ -35,11 +35,11 @@ public class Caloteiro {
 		this.email = email;
 	}
 	
-	public Integer getDebt() {
+	public Double getDebt() {
 		return debt;
 	}
 	
-	public void setDebt(Integer debt) {
+	public void setDebt(Double debt) {
 		this.debt = debt;
 	}
 	

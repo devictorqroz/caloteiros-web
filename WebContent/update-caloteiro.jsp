@@ -3,6 +3,11 @@
 	<head>
 		<title>Edita caloteiro</title>
 		<link rel="stylesheet" type="text/css" href="css/update-caloteiro.css">
+		<script src="javascript/jquery-3.7.1.min.js" defer></script>
+		<script src="javascript/jquery.maskMoney.min.js" defer></script>
+		<script src="javascript/jquery.inputmask.min.js" defer></script>
+		<script src="javascript/jquery.validate.min.js" defer></script>
+		<script src="javascript/masks.js" defer></script>
 	</head>
 	<body>
 		<header>

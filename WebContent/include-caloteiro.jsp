@@ -3,6 +3,11 @@
 	<head>
 		<title>Adiciona Caloteiro</title>
 		<link rel="stylesheet" type="text/css" href="css/include-caloteiro.css">
+		<script src="javascript/jquery-3.7.1.min.js" defer></script>
+		<script src="javascript/jquery.maskMoney.min.js" defer></script>
+		<script src="javascript/jquery.inputmask.min.js" defer></script>
+		<script src="javascript/jquery.validate.min.js" defer></script>
+		<script src="javascript/masks.js" defer></script>
 	</head>
 	<body>
 		<header>
@@ -40,9 +45,4 @@
 			<c:import url="footer.jsp" />
 		</footer>
 	</body>
-<!-- 	<script src="javascript/jquery-3.7.1.min.js"></script> -->
-<!-- 	<script src="javascript/jquery.maskMoney.min.js"></script> -->
-<!-- 	<script src="javascript/jquery.inputmask.min.js"></script> -->
-<!-- 	<script src="javascript/jquery.validate.min.js"></script> -->
-<!-- 	<script src="javascript/masks.js"></script> -->
 </html>

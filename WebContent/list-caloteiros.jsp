@@ -4,6 +4,8 @@
 		<meta charset="UTF-8">
 		<title>Lista de Caloteiros</title>
 		<link rel="stylesheet" type="text/css" href="css/list-caloteiros.css">
+		<script src="javascript/jquery-3.7.1.min.js" defer></script>
+    	<script src="javascript/confirmation.js" defer></script>
 	</head>
 	<body>
 		<header>
@@ -57,7 +59,7 @@
 							<form action="system" method="post">
 								<input type="hidden" name="logica" value="UpdateCaloteiro" />
 								<input type="hidden" name="id" value="${caloteiro.id}" />
-								<input type="submit" name="updateButton" value="Editar" />
+								<input type="submit" id="updateButton" value="Editar" />
 							</form>
 						</td>
 						<td>
@@ -65,7 +67,7 @@
 								<input type="hidden" name="logica" value="DeleteCaloteiro" />
 								<input type="hidden" name="id" value="${caloteiro.id}" />
 								<input type="hidden" name="name" value="${caloteiro.name}" />
-								<input type="submit" name="deleteButton" value="Excluir" />
+								<input type="submit" id="deleteButton" value="Excluir" />
 							</form>
 						</td>
 					</tr>		

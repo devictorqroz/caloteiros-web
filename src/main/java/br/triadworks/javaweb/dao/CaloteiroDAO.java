@@ -31,7 +31,7 @@ public class CaloteiroDAO {
 			
 			pstmt.setString(1, caloteiro.getName());
 			pstmt.setString(2, caloteiro.getEmail());
-			pstmt.setInt(3, caloteiro.getDebt());
+			pstmt.setDouble(3, caloteiro.getDebt());
 			pstmt.setDate(4, new Date(caloteiro.getDebtDate().getTimeInMillis()));
 			
 			pstmt.execute();
@@ -54,7 +54,7 @@ public class CaloteiroDAO {
 				Long idCaloteiro = (long) rs.getInt("id");
 				String name = rs.getString("name");
 				String email = rs.getString("email");
-				int debt = rs.getInt("debt");
+				Double debt = rs.getDouble("debt");
 				Calendar debtDate = Calendar.getInstance();
 				debtDate.setTime(rs.getDate("debtDate"));
 				
@@ -62,7 +62,7 @@ public class CaloteiroDAO {
 				caloteiro.setId(idCaloteiro);
 				caloteiro.setName(name);
 				caloteiro.setEmail(email);
-				caloteiro.setDebt(new Integer(debt));
+				caloteiro.setDebt(new Double(debt));
 				caloteiro.setDebtDate(debtDate);
 				
 				caloteiros.add(caloteiro);
@@ -90,7 +90,7 @@ public class CaloteiroDAO {
 				Long caloteiroID = rs.getLong("id");
 				String name = rs.getString("name");
 				String email = rs.getString("email");
-				int debt = rs.getInt("debt");
+				Double debt = rs.getDouble("debt");
 				Calendar debtDate = Calendar.getInstance();
 				debtDate.setTime(rs.getDate("debtDate"));
 				
@@ -98,7 +98,7 @@ public class CaloteiroDAO {
 				caloteiro.setId(caloteiroID);
 				caloteiro.setName(name);
 				caloteiro.setEmail(email);
-				caloteiro.setDebt(new Integer(debt));
+				caloteiro.setDebt(new Double(debt));
 				caloteiro.setDebtDate(debtDate);
 			}
 			
@@ -120,7 +120,7 @@ public class CaloteiroDAO {
 			
 			pstmt.setString(1, caloteiro.getName());
 			pstmt.setString(2, caloteiro.getEmail());
-			pstmt.setInt(3, caloteiro.getDebt());
+			pstmt.setDouble(3, caloteiro.getDebt());
 			pstmt.setDate(4, new Date(caloteiro.getDebtDate().getTimeInMillis()));
 			pstmt.setLong(5, caloteiro.getId());
 			

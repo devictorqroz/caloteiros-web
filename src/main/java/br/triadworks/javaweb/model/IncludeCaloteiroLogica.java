@@ -40,7 +40,7 @@ public class IncludeCaloteiroLogica implements Logica {
 			Caloteiro caloteiro = new Caloteiro();
 			caloteiro.setName(name);
 			caloteiro.setEmail(email);
-			caloteiro.setDebt(new Integer(debt));
+			caloteiro.setDebt(new Double(debt));
 			caloteiro.setDebtDate(debtDateParsed);
 			
 			CaloteiroDAO dao = new CaloteiroDAO(connection);
@@ -72,7 +72,7 @@ public class IncludeCaloteiroLogica implements Logica {
 			caloteiro.setId(caloteiroID);
 			caloteiro.setName(name);
 			caloteiro.setEmail(email);
-			caloteiro.setDebt(new Integer(debt));
+			caloteiro.setDebt(new Double(debt));
 			caloteiro.setDebtDate(debtDateParsed);
 			
 			CaloteiroDAO dao = new CaloteiroDAO(connection);
