@@ -1,3 +1,9 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+}
 
 header {
     background-color: #333; 
@@ -11,23 +17,41 @@ header {
     z-index: 1000;
 }
 
+header h1 {
+    margin: 0;
+}
+
 main {
-    margin-top: 50px; 
-    margin-bottom: 50px; 
+    margin-top: 110px;
+    margin-bottom: 50px;
     padding: 20px;
     text-align: center;
 }
 
-form {
-    margin: 0 auto; 
-    width: 300px; 
+main p {
+    font-size: 1.0em;
+    margin: 20px 0;
 }
 
-form input[type="text"] {
-    width: calc(100% - 20px); 
-    margin-bottom: 10px; 
-    padding: 10px; 
-    box-sizing: border-box; 
+form {
+    margin: 0 auto; 
+    width: 300px;
+    text-align: center;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input[type="text"], 
+form input[type="email"], 
+form input[type="number"], 
+form input[type="date"]  {
+    width: calc(100% - 20px);
+    margin-bottom: 10px;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 form input[type="submit"] {
@@ -42,6 +66,20 @@ form input[type="submit"] {
 
 form input[type="submit"]:hover {
     background-color: #555; 
+}
+
+main a.menu-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+main a.menu-link:hover {
+    background-color: #555;
 }
 
 footer {

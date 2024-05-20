@@ -12,6 +12,7 @@
 	<body>
 		<header>
 			<c:import url="header.jsp" />
+			<h1>Caloteiros</h1>
 		</header>
 		<main>
 			<p>
@@ -40,6 +41,7 @@
 					
 				<input type="submit" value="Cadastrar" />
 			</form>
+			<a href="menu.jsp" class="menu-link">Retornar ao Menu</a>
 		</main>
 		<footer>
 			<c:import url="footer.jsp" />

@@ -10,8 +10,12 @@
 	<body>
 		<header>
 			<c:import url="header.jsp" />
+			<h1>Caloteiros</h1>
 		</header>
 		<main>
+			<p>
+				Usuário Logado: ${authenticatedUser.name}
+			</p>
 			<p>
 				Lista de Caloteiros: 
 			</p>		
@@ -73,9 +77,7 @@
 					</tr>		
 				</c:forEach>
 			</table>
-			<a class="menu-link" href='<c:url value="/menu.jsp" />' >
-						Menu
-			</a>
+			<a href="menu.jsp" class="menu-link">Retornar ao Menu</a>
 		</main>
 		<footer>
 			<c:import url="footer.jsp" />
